@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>This Is It Cafe | Premium Dine-in & Delivery in Sainikpuri</title>
+  <meta name="description" content="A neighborhood premium café in Sainikpuri offering a relaxed green ambience, quality coffee, global comfort food, and a versatile dine-in experience.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <style>
+    /* ── Design Tokens ───────────────────────────────────────── */
+    :root {
+      --green-950: #0e1c13;
+      --green-900: #1a2f23;
+      --green-800: #243d2e;
+      --green-600: #3a6647;
+      --green-500: #4a7c59;
+      --green-300: #7db98c;
+      --green-100: #deeee3;
+      --green-50:  #f1f7f3;
+
+      --cream:     #faf8f3;
+      --cream-100: #f3efe5;
+      --gold:      #c9974a;
+      --gold-light:#e8bf85;
+
+      --text-main: #1c1a17;
+      --text-muted:#5a5650;
+      --text-light:#8a8580;
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --shadow-sm: 0 2px 8px rgba(14,28,19,0.06);
+      --shadow-md: 0 8px 24px rgba(14,28,19,0.09);
+      --shadow-lg: 0 20px 48px rgba(14,28,19,0.12);
+      --shadow-xl: 0 32px 72px rgba(14,28,19,0.16);
+
+      --radius-sm: 0.5rem;
+      --radius-md: 1rem;
+      --radius-lg: 1.75rem;
+      --radius-xl: 2.5rem;
+
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    /* ── Reset ───────────────────────────────────────────────── */
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--text-main);
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+
+    /* ── Layout Helpers ──────────────────────────────────────── */
+    .container {
+      width: 100%; max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    @media (min-width: 768px)  { .container { padding: 0 2.5rem; } }
+    @media (min-width: 1280px) { .container { padding: 0 2rem; } }
+
+    .section { padding: 6rem 0; }
+    @media (min-width: 768px) { .section { padding: 8rem 0; } }
+
+    .text-center { text-align: center; }
+
+    /* ── Typography ──────────────────────────────────────────── */
+    .display-xl {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 7vw, 6rem);
+      font-weight: 600;
+      line-height: 1.06;
+      letter-spacing: -0.01em;
+      color: var(--green-950);
+    }
+    .display-lg {
+      font-family: var(--font-display);
+      font-size: clamp(2.25rem, 4.5vw, 3.75rem);
+      font-weight: 600;
+      line-height: 1.1;
+      color: var(--green-950);
+    }
+    .display-md {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--green-950);
+    }
+    .body-lg { font-size: 1.125rem; line-height: 1.75; color: var(--text-muted); }
+    .label {
+      font-size: 0.75rem; font-weight: 600; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--green-500);
+    }
+
+    /* ── Buttons ─────────────────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      gap: 0.5rem; padding: 0.875rem 1.75rem;
+      font-family: var(--font-body); font-weight: 500; font-size: 0.9375rem;
+      border-radius: 50px; transition: all 0.35s var(--ease-out);
+    }
+    .btn-primary {
+      background: var(--green-900); color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--green-600);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(26,47,35,0.28);
+    }
+    .btn-outline {
+      border: 1.5px solid var(--green-900); color: var(--green-900);
+    }
+    .btn-outline:hover {
+      background: var(--green-900); color: #fff;
+      transform: translateY(-2px);
+    }
+    .btn-ghost {
+      color: var(--green-900); padding: 0.875rem 0;
+      font-weight: 500; gap: 0.4rem;
+    }
+    .btn-ghost i { transition: transform 0.3s var(--ease-out); }
+    .btn-ghost:hover i { transform: translateX(5px); }
+    .btn-lg { padding: 1.0625rem 2.25rem; font-size: 1rem; }
+    .btn-gold {
+      background: var(--gold); color: #fff;
+    }
+    .btn-gold:hover {
+      background: #b8883e;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,151,74,0.35);
+    }
+
+    /* ── Rating Badge ────────────────────────────────────────── */
+    .rating-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.55);
+      padding: 0.55rem 1.1rem; border-radius: 50px;
+      box-shadow: 0 4px 16px rgba(14,28,19,0.08);
+      font-size: 0.875rem; font-weight: 500; color: var(--text-main);
+    }
+    .rating-badge .stars { display: flex; gap: 2px; }
+    .rating-badge .stars i { color: var(--gold); font-size: 0.9rem; }
+    .rating-badge strong { color: var(--green-900); }
+
+    /* ── Tag Pills ───────────────────────────────────────────── */
+    .tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: var(--green-50); color: var(--green-800);
+      padding: 0.4rem 0.9rem; border-radius: 50px;
+      font-size: 0.8125rem; font-weight: 500;
+      border: 1px solid var(--green-100);
+    }
+    .tag i { color: var(--green-500); font-size: 1rem; }
+
+    /* ── Header ──────────────────────────────────────────────── */
+    #header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      z-index: 200; padding: 1.25rem 0;
+      transition: all 0.4s var(--ease-out);
+    }
+    #header.scrolled {
+      background: rgba(250,248,243,0.92);
+      backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(26,47,35,0.08);
+      box-shadow: 0 4px 24px rgba(14,28,19,0.06);
+      padding: 0.875rem 0;
+    }
+    .header-inner {
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+    }
+
+    .logo { display: flex; flex-direction: column; gap: 0.05rem; }
+    .logo-name {
+      font-family: var(--font-display); font-size: 1.5rem;
+      font-weight: 700; color: var(--green-950); line-height: 1;
+    }
+    .logo-name span { color: var(--green-500); }
+    .logo-sub { font-size: 0.7rem; color: var(--text-light); font-weight: 400; letter-spacing: 0.02em; }
+
+    .nav { display: none; }
+    @media (min-width: 1024px) { .nav { display: block; } }
+    .nav-list { display: flex; gap: 2.25rem; }
+    .nav-link {
+      font-size: 0.9375rem; font-weight: 500; color: var(--text-muted);
+      position: relative; transition: color 0.2s;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1.5px; background: var(--green-500);
+      transition: width 0.35s var(--ease-out);
+    }
+    .nav-link:hover { color: var(--green-900); }
+    .nav-link:hover::after { width: 100%; }
+
+    .header-actions { display: flex; align-items: center; gap: 0.75rem; }
+    .call-btn { display: none; }
+    @media (min-width: 640px) { .call-btn { display: inline-flex; } }
+
+    .menu-toggle {
+      display: flex; align-items: center; justify-content: center;
+      width: 2.5rem; height: 2.5rem;
+      border-radius: 50%; background: var(--green-50);
+      font-size: 1.25rem; color: var(--green-900);
+      transition: background 0.2s;
+    }
+    .menu-toggle:hover { background: var(--green-100); }
+    @media (min-width: 1024px) { .menu-toggle { display: none; } }
+
+    /* Mobile nav */
+    .mobile-nav {
+      display: none;
+      position: absolute; top: 100%; left: 0; width: 100%;
+      background: rgba(250,248,243,0.97);
+      backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(26,47,35,0.08);
+      padding: 1.5rem;
+      box-shadow: 0 16px 40px rgba(14,28,19,0.1);
+    }
+    .mobile-nav.open { display: block; }
+    .mobile-nav .nav-list { flex-direction: column; gap: 0; }
+    .mobile-nav .nav-link {
+      display: block; padding: 0.875rem 0;
+      border-bottom: 1px solid var(--green-100);
+      font-size: 1.125rem; color: var(--text-main);
+    }
+    .mobile-nav .nav-link:last-child { border-bottom: none; }
+    .mobile-nav .nav-link::after { display: none; }
+
+    /* ── Hero ────────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100svh; min-height: 100vh;
+      display: flex; align-items: center;
+      padding-top: 5rem; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 30%;
+    }
+    .hero-gradient {
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        105deg,
+        rgba(14,28,19,0.82) 0%,
+        rgba(14,28,19,0.55) 45%,
+        rgba(14,28,19,0.15) 100%
+      );
+    }
+    @media (max-width: 767px) {
+      .hero-gradient {
+        background: linear-gradient(
+          to bottom,
+          rgba(14,28,19,0.4) 0%,
+          rgba(14,28,19,0.85) 100%
+        );
+      }
+    }
+
+    /* Decorative botanical ring */
+    .hero-ring {
+      position: absolute; right: -8vw; top: 50%;
+      transform: translateY(-50%);
+      width: clamp(280px, 45vw, 640px);
+      height: clamp(280px, 45vw, 640px);
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.08);
+      pointer-events: none;
+      display: none;
+    }
+    .hero-ring::before {
+      content: ''; position: absolute; inset: 2.5rem;
+      border-radius: 50%; border: 1px solid rgba(255,255,255,0.05);
+    }
+    @media (min-width: 1024px) { .hero-ring { display: block; } }
+
+    .hero-content {
+      position: relative; z-index: 10;
+      max-width: 680px;
+    }
+
+    .hero-label { color: var(--gold-light); margin-bottom: 1.25rem; }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.25rem, 8vw, 6.5rem);
+      font-weight: 600; line-height: 1.0;
+      letter-spacing: -0.015em;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.1875rem);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 500px;
+    }
+
+    .hero-actions {
+      display: flex; flex-wrap: wrap; align-items: center;
+      gap: 1rem; margin-bottom: 3rem;
+    }
+    .btn-hero-primary {
+      background: var(--gold); color: #fff; font-weight: 600;
+    }
+    .btn-hero-primary:hover {
+      background: #b8883e; transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(201,151,74,0.4);
+    }
+    .btn-hero-ghost {
+      color: rgba(255,255,255,0.9); font-weight: 500; padding: 0.875rem 0;
+    }
+    .btn-hero-ghost i { transition: transform 0.3s; }
+    .btn-hero-ghost:hover { color: #fff; }
+    .btn-hero-ghost:hover i { transform: translateX(5px); }
+
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.9); padding: 0.4rem 0.875rem;
+      border-radius: 50px; font-size: 0.8125rem; font-weight: 500;
+    }
+    .hero-tag i { color: var(--gold-light); font-size: 1rem; }
+
+    /* Rating floating card */
+    .hero-rating {
+      margin-bottom: 1.75rem;
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute; bottom: 2.5rem; left: 50%;
+      transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center;
+      gap: 0.5rem; color: rgba(255,255,255,0.5);
+      font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
+      z-index: 10; animation: scrollBob 2.5s ease-in-out infinite;
+    }
+    .scroll-cue i { font-size: 1.25rem; }
+    @keyframes scrollBob {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── Section Headers ─────────────────────────────────────── */
+    .section-eyebrow {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .section-eyebrow::before {
+      content: ''; display: block; width: 2rem; height: 1.5px;
+      background: var(--green-500);
+    }
+    .section-eyebrow.center {
+      justify-content: center;
+    }
+    .section-eyebrow.center::before,
+    .section-eyebrow.center::after {
+      content: ''; display: block; width: 2rem; height: 1.5px;
+      background: var(--green-500); flex-shrink: 0;
+    }
+
+    .section-lead {
+      font-size: clamp(1rem, 1.5vw, 1.125rem);
+      color: var(--text-muted);
+      max-width: 640px;
+      line-height: 1.75;
+    }
+    .text-center .section-lead { margin-left: auto; margin-right: auto; }
+
+    /* ── About / Ambience ────────────────────────────────────── */
+    .about-section { background: #fff; }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    @media (min-width: 992px) {
+      .about-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 5rem;
+      }
+    }
+
+    .about-title { margin-bottom: 1.25rem; }
+    .about-lead { margin-bottom: 2.5rem; }
+
+    .features-stack { display: flex; flex-direction: column; gap: 1.25rem; }
+
+    .feature-row {
+      display: flex; align-items: flex-start; gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: var(--cream); border-radius: var(--radius-md);
+      border: 1px solid var(--green-100);
+      transition: all 0.3s var(--ease-out);
+    }
+    .feature-row:hover {
+      background: var(--green-50);
+      border-color: var(--green-300);
+      transform: translateX(4px);
+      box-shadow: var(--shadow-sm);
+    }
+    .feature-icon {
+      flex-shrink: 0;
+      width: 2.75rem; height: 2.75rem;
+      background: var(--green-100); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.375rem; color: var(--green-600);
+    }
+    .feature-copy h4 {
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
+      color: var(--green-950); margin-bottom: 0.2rem;
+    }
+    .feature-copy p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* About image mosaic */
+    .about-visual { position: relative; }
+    .about-img-main {
+      width: 100%; border-radius: var(--radius-xl);
+      overflow: hidden; box-shadow: var(--shadow-xl);
+      aspect-ratio: 4/5; object-fit: cover;
+    }
+    .about-img-accent {
+      position: absolute; bottom: -2rem; left: -2rem;
+      width: 55%; border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-lg);
+      border: 4px solid #fff;
+      aspect-ratio: 1; object-fit: cover;
+      display: none;
+    }
+    @media (min-width: 640px) { .about-img-accent { display: block; } }
+
+    .about-stat-card {
+      position: absolute; top: 2rem; right: -1.5rem;
+      background: var(--green-900); color: #fff;
+      padding: 1rem 1.25rem; border-radius: var(--radius-md);
+      box-shadow: var(--shadow-lg);
+      display: none;
+    }
+    @media (min-width: 640px) { .about-stat-card { display: block; } }
+    .about-stat-card .stat-num {
+      font-family: var(--font-display); font-size: 2rem;
+      font-weight: 700; line-height: 1; color: var(--gold-light);
+    }
+    .about-stat-card .stat-label {
+      font-size: 0.75rem; color: rgba(255,255,255,0.65);
+      margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.08em;
+    }
+
+    /* ── Menu ────────────────────────────────────────────────── */
+    .menu-section { background: var(--cream); }
+
+    .menu-header { margin-bottom: 3rem; }
+    .menu-header .section-lead { margin: 1rem auto 0; }
+
+    .filter-bar {
+      display: flex; justify-content: center; flex-wrap: wrap;
+      gap: 0.6rem; margin-bottom: 3rem;
+    }
+    .filter-btn {
+      padding: 0.55rem 1.375rem;
+      border: 1.5px solid var(--green-300); border-radius: 50px;
+      font-family: var(--font-body); font-size: 0.875rem; font-weight: 500;
+      color: var(--green-800); background: transparent;
+      transition: all 0.25s var(--ease-out);
+    }
+    .filter-btn:hover { border-color: var(--green-600); color: var(--green-900); }
+    .filter-btn.active {
+      background: var(--green-900); color: #fff;
+      border-color: var(--green-900);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .menu-card {
+      background: #fff; border-radius: var(--radius-lg);
+      overflow: hidden; box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(26,47,35,0.06);
+      transition: all 0.4s var(--ease-out);
+      display: flex; flex-direction: column;
+    }
+    .menu-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--green-100);
+    }
+    .menu-card.hidden { display: none; }
+
+    .card-img-wrap {
+      height: 210px; overflow: hidden;
+      background: var(--green-50);
+      position: relative;
+    }
+    .card-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .menu-card:hover .card-img-wrap img { transform: scale(1.07); }
+
+    .card-category-pill {
+      position: absolute; top: 0.875rem; left: 0.875rem;
+      background: rgba(14,28,19,0.72); color: #fff;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      padding: 0.25rem 0.75rem; border-radius: 50px;
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .card-body { padding: 1.375rem 1.5rem; flex: 1; }
+    .card-body h3 {
+      font-family: var(--font-display); font-size: 1.375rem;
+      font-weight: 600; color: var(--green-950);
+      margin-bottom: 0.375rem; line-height: 1.25;
+    }
+    .card-body p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Text-only cards (no image) */
+    .card-text-only {
+      display: flex; align-items: center;
+    }
+    .card-text-only .card-body {
+      padding: 1.75rem 1.5rem;
+    }
+    .card-icon-bg {
+      flex-shrink: 0;
+      width: 3.5rem; height: 3.5rem;
+      background: var(--green-50); border-radius: var(--radius-sm);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; color: var(--green-500);
+      margin-right: 1rem; margin-left: 0.25rem;
+    }
+
+    .menu-cta { margin-top: 3.5rem; }
+
+    /* ── Reviews ─────────────────────────────────────────────── */
+    .reviews-section { background: var(--green-950); }
+    .reviews-section .label { color: var(--gold-light); }
+    .reviews-section .display-lg { color: #fff; }
+    .reviews-section .section-lead { color: rgba(255,255,255,0.6); }
+
+    .reviews-header { margin-bottom: 3.5rem; }
+    .reviews-header .rating-badge {
+      background: rgba(255,255,255,0.1);
+      border-color: rgba(255,255,255,0.15);
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.5rem;
+    }
+    .reviews-header .rating-badge strong { color: var(--gold-light); }
+
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .review-card {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative; overflow: hidden;
+      transition: all 0.35s var(--ease-out);
+    }
+    .review-card:hover {
+      background: rgba(255,255,255,0.08);
+      border-color: rgba(255,255,255,0.14);
+      transform: translateY(-4px);
+    }
+    .review-card::before {
+      content: '\201C';
+      position: absolute; top: 0.5rem; right: 1.5rem;
+      font-family: var(--font-display); font-size: 6rem;
+      color: rgba(255,255,255,0.04); line-height: 1;
+      pointer-events: none;
+    }
+
+    .reviewer-row {
+      display: flex; align-items: center; gap: 1rem; margin-bottom: 1.25rem;
+    }
+    .reviewer-avatar {
+      width: 2.75rem; height: 2.75rem; border-radius: 50%;
+      background: var(--green-800);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display); font-size: 1.25rem; font-weight: 600;
+      color: var(--green-300); flex-shrink: 0;
+    }
+    .reviewer-name {
+      font-weight: 600; color: #fff; font-size: 1rem;
+    }
+    .reviewer-meta { font-size: 0.8rem; color: rgba(255,255,255,0.4); margin-top: 0.1rem; }
+
+    .review-stars { display: flex; gap: 2px; margin-bottom: 1rem; }
+    .review-stars i { color: var(--gold); font-size: 0.875rem; }
+
+    .review-text {
+      font-size: 0.9375rem; color: rgba(255,255,255,0.72);
+      font-style: italic; line-height: 1.75;
+    }
+
+    /* ── Visit / Footer ──────────────────────────────────────── */
+    .visit-section {
+      background: #fff;
+      padding: 6rem 0 0;
+    }
+    .visit-grid {
+      display: grid; gap: 4rem;
+      grid-template-columns: 1fr;
+      padding-bottom: 4rem;
+    }
+    @media (min-width: 768px) {
+      .visit-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+    @media (min-width: 1024px) {
+      .visit-grid { grid-template-columns: 1.5fr 1fr 1fr; }
+    }
+
+    .visit-brand .logo-name { font-size: 2rem; margin-bottom: 0.25rem; }
+    .visit-brand .logo-sub { font-size: 0.8rem; margin-bottom: 1.25rem; }
+    .visit-desc { color: var(--text-muted); font-size: 0.9375rem; line-height: 1.75; max-width: 380px; }
+
+    .visit-col h4 {
+      font-family: var(--font-display); font-size: 1.375rem;
+      font-weight: 600; color: var(--green-950);
+      margin-bottom: 1.5rem;
+    }
+
+    .info-list { display: flex; flex-direction: column; gap: 1rem; }
+    .info-item {
+      display: flex; align-items: flex-start; gap: 0.875rem;
+    }
+    .info-item i {
+      flex-shrink: 0; font-size: 1.25rem; color: var(--green-500);
+      margin-top: 0.1rem;
+    }
+    .info-item span { font-size: 0.9375rem; color: var(--text-muted); line-height: 1.6; }
+    .info-item a { color: var(--green-600); font-weight: 500; }
+    .info-item a:hover { color: var(--green-900); text-decoration: underline; }
+
+    .quick-links { display: flex; flex-direction: column; gap: 0.625rem; }
+    .quick-link {
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9375rem; color: var(--text-muted);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--green-100);
+      transition: all 0.2s;
+    }
+    .quick-link:last-child { border-bottom: none; }
+    .quick-link i { color: var(--green-400); font-size: 1rem; transition: transform 0.2s; }
+    .quick-link:hover { color: var(--green-900); padding-left: 4px; }
+    .quick-link:hover i { transform: translateX(3px); }
+    .quick-link.highlight { color: var(--green-600); font-weight: 500; }
+
+    /* Footer bottom bar */
+    .footer-bar {
+      background: var(--green-950); color: rgba(255,255,255,0.45);
+      padding: 1.375rem 0; font-size: 0.8125rem; text-align: center;
+    }
+
+    /* ── Animations ──────────────────────────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    .anim { opacity: 0; }
+    .anim.visible {
+      animation: fadeUp 0.7s var(--ease-out) forwards;
+    }
+    .anim-d1.visible { animation-delay: 0.08s; }
+    .anim-d2.visible { animation-delay: 0.16s; }
+    .anim-d3.visible { animation-delay: 0.24s; }
+    .anim-d4.visible { animation-delay: 0.32s; }
+    .anim-d5.visible { animation-delay: 0.40s; }
+
+    /* Hero always animates */
+    .hero-label { animation: fadeUp 0.7s var(--ease-out) 0.1s both; }
+    .hero-title  { animation: fadeUp 0.8s var(--ease-out) 0.2s both; }
+    .hero-sub    { animation: fadeUp 0.8s var(--ease-out) 0.35s both; }
+    .hero-actions { animation: fadeUp 0.7s var(--ease-out) 0.48s both; }
+    .hero-tags   { animation: fadeUp 0.7s var(--ease-out) 0.58s both; }
+    .hero-rating { animation: fadeUp 0.6s var(--ease-out) 0.68s both; }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════════════════ -->
+<header id="header">
+  <div class="container header-inner">
+    <a href="#home" class="logo">
+      <span class="logo-name">This Is It <span>Cafe</span></span>
+      <span class="logo-sub">థిస్ ఇస్ ఇట కేఫ్ · Sainikpuri</span>
+    </a>
+
+    <nav class="nav" id="main-nav">
+      <ul class="nav-list">
+        <li><a href="#about"   class="nav-link">Ambience</a></li>
+        <li><a href="#menu"    class="nav-link">Menu</a></li>
+        <li><a href="#reviews" class="nav-link">Reviews</a></li>
+        <li><a href="#visit"   class="nav-link">Visit Us</a></li>
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <a href="tel:07450009494" class="btn btn-outline call-btn">
+        <i class="ph ph-phone"></i> Call Us
+      </a>
+      <a href="#visit" class="btn btn-primary">Reserve a Table</a>
+      <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+        <i class="ph ph-list" id="toggle-icon"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile nav dropdown -->
+  <div class="mobile-nav" id="mobile-nav">
+    <ul class="nav-list">
+      <li><a href="#about"   class="nav-link">Ambience</a></li>
+      <li><a href="#menu"    class="nav-link">Menu</a></li>
+      <li><a href="#reviews" class="nav-link">Reviews</a></li>
+      <li><a href="#visit"   class="nav-link">Visit Us</a></li>
+    </ul>
+  </div>
+</header>
+
+<!-- ═══════════════════ HERO ══════════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img
+      src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1600&q=80"
+      alt="This Is It Cafe interior"
+      loading="eager"
+    >
+    <div class="hero-gradient"></div>
+  </div>
+  <div class="hero-ring"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-rating">
+        <div class="rating-badge">
+          <div class="stars">
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+            <i class="ph-fill ph-star-half"></i>
+          </div>
+          <span><strong>4.3</strong> · 2,216+ reviews on Google</span>
+        </div>
+      </div>
+
+      <p class="label hero-label">Sainikpuri's Favourite Café</p>
+      <h1 class="hero-title">
+        Your perfect<br>
+        corner to<br>
+        <em>eat, sip & stay.</em>
+      </h1>
+      <p class="hero-sub">
+        Lush green interiors, world-class comfort food, and exceptional coffee — whether you're meeting friends, working remotely, or just unwinding.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#menu" class="btn btn-lg btn-hero-primary">
+          Explore Menu <i class="ph ph-arrow-right"></i>
+        </a>
+        <a href="#visit" class="btn btn-hero-ghost">
+          Get Directions <i class="ph ph-arrow-right"></i>
+        </a>
+      </div>
+
+      <div class="hero-tags">
+        <span class="hero-tag"><i class="ph-fill ph-chair"></i> Dine-in</span>
+        <span class="hero-tag"><i class="ph ph-car"></i> Drive-through</span>
+        <span class="hero-tag"><i class="ph ph-package"></i> No-contact Delivery</span>
+        <span class="hero-tag"><i class="ph ph-wifi-high"></i> Free Wi-Fi</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <i class="ph ph-arrow-down"></i>
+  </div>
+</section>
+
+<!-- ═══════════════════ AMBIENCE ══════════════════════════════ -->
+<section class="section about-section" id="about">
+  <div class="container">
+    <div class="about-grid">
+
+      <!-- Text Side -->
+      <div class="about-text">
+        <div class="section-eyebrow anim anim-d1">
+          <span class="label">Ambience & Vibe</span>
+        </div>
+        <h2 class="display-lg about-title anim anim-d2">
+          Your space to<br>unwind &amp; focus.
+        </h2>
+        <p class="section-lead about-lead anim anim-d3">
+          Designed around calmness — lush greens, soft curated music, and comfortable seating make this the perfect spot whether you're catching up with friends or need a quiet corner for deep work.
+        </p>
+
+        <div class="features-stack">
+          <div class="feature-row anim anim-d3">
+            <div class="feature-icon"><i class="ph ph-plant"></i></div>
+            <div class="feature-copy">
+              <h4>Lush Green Interiors</h4>
+              <p>Be surrounded by living plants that bring calm and freshness indoors.</p>
+            </div>
+          </div>
+          <div class="feature-row anim anim-d4">
+            <div class="feature-icon"><i class="ph ph-music-notes-simple"></i></div>
+            <div class="feature-copy">
+              <h4>Curated Soft Music</h4>
+              <p>Handpicked playlists that set the perfect ambient mood throughout the day.</p>
+            </div>
+          </div>
+          <div class="feature-row anim anim-d5">
+            <div class="feature-icon"><i class="ph ph-laptop"></i></div>
+            <div class="feature-copy">
+              <h4>Work-Friendly Setup</h4>
+              <p>Ergonomic seating, ample power points, and reliable high-speed Wi-Fi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Visual Side -->
+      <div class="about-visual anim anim-d2">
+        <img
+          class="about-img-main"
+          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=80"
+          alt="Cafe ambience"
+        >
+        <img
+          class="about-img-accent"
+          src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500&q=80"
+          alt="Cappuccino at This Is It Cafe"
+        >
+        <div class="about-stat-card">
+          <div class="stat-num">9 AM</div>
+          <div class="stat-label">Opens every day</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ MENU ══════════════════════════════════ -->
+<section class="section menu-section" id="menu">
+  <div class="container">
+
+    <div class="menu-header text-center anim">
+      <div class="section-eyebrow center">
+        <span class="label">Our Menu</span>
+      </div>
+      <h2 class="display-lg" style="margin-bottom:0.75rem;">Global Comfort Food &amp; <br>Quality Coffee</h2>
+      <p class="section-lead">Carefully crafted dishes and beverages for every palate and every mood.</p>
+    </div>
+
+    <div class="filter-bar anim anim-d2">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="food">Food</button>
+      <button class="filter-btn" data-filter="bev">Beverages</button>
+    </div>
+
+    <div class="menu-grid" id="menu-grid">
+
+      <!-- Food with images -->
+      <div class="menu-card" data-cat="food">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1569050467447-ce54b3bbc37d?w=600&q=80"
+            alt="Korean Fried Chicken" loading="lazy">
+          <span class="card-category-pill">Food</span>
+        </div>
+        <div class="card-body">
+          <h3>Korean Fried Chicken</h3>
+          <p>Crispy chicken glazed in our signature spicy-sweet gochujang sauce.</p>
+        </div>
+      </div>
+
+      <div class="menu-card" data-cat="food">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1617196034183-421b4040ed20?w=600&q=80"
+            alt="Sushi & California Rolls" loading="lazy">
+          <span class="card-category-pill">Food</span>
+        </div>
+        <div class="card-body">
+          <h3>Sushi &amp; California Rolls</h3>
+          <p>Fresh, perfectly rolled sushi with high-quality ingredients sourced daily.</p>
+        </div>
+      </div>
+
+      <!-- Food text-only cards -->
+      <div class="menu-card card-text-only" data-cat="food">
+        <div class="card-icon-bg"><i class="ph ph-chicken"></i></div>
+        <div class="card-body">
+          <h3>Chicken Wings</h3>
+          <p>Juicy wings tossed in your choice of sauce — BBQ, Buffalo, or Honey Garlic.</p>
+        </div>
+      </div>
+
+      <div class="menu-card card-text-only" data-cat="food">
+        <div class="card-icon-bg"><i class="ph ph-pizza"></i></div>
+        <div class="card-body">
+          <h3>Wood-Fired Pizza</h3>
+          <p>Hand-tossed crust with premium mozzarella and fresh seasonal toppings.</p>
+        </div>
+      </div>
+
+      <div class="menu-card card-text-only" data-cat="food">
+        <div class="card-icon-bg"><i class="ph ph-bowl-food"></i></div>
+        <div class="card-body">
+          <h3>Dim Sum &amp; Ramen</h3>
+          <p>Warm, comforting, and authentic Asian flavours in every bowl.</p>
+        </div>
+      </div>
+
+      <div class="menu-card card-text-only" data-cat="food">
+        <div class="card-icon-bg"><i class="ph ph-sun-horizon"></i></div>
+        <div class="card-body">
+          <h3>All-Day Breakfast</h3>
+          <p>Turkish Eggs, Cinnamon French Toast, and Waffles with Fresh Fruit.</p>
+        </div>
+      </div>
+
+      <!-- Beverages -->
+      <div class="menu-card" data-cat="bev">
+        <div class="card-img-wrap">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80"
+            alt="Artisanal Coffee" loading="lazy">
+          <span class="card-category-pill">Beverages</span>
+        </div>
+        <div class="card-body">
+          <h3>Artisanal Coffee</h3>
+          <p>Cappuccino, Latte, Iced Coffee — brewed from freshly roasted single-origin beans.</p>
+        </div>
+      </div>
+
+      <div class="menu-card card-text-only" data-cat="bev">
+        <div class="card-icon-bg"><i class="ph ph-martini"></i></div>
+        <div class="card-body">
+          <h3>Signature Mocktails</h3>
+          <p>Pina Colada, Passion Fruit Spritz, and seasonal craft beverages.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="menu-cta text-center anim">
+      <a href="tel:07450009494" class="btn btn-primary btn-lg">
+        View Full Menu &amp; Order Online <i class="ph ph-arrow-up-right"></i>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════ REVIEWS ═══════════════════════════════ -->
+<section class="section reviews-section" id="reviews">
+  <div class="container">
+
+    <div class="reviews-header text-center anim">
+      <div class="rating-badge" style="margin:0 auto 1.5rem;">
+        <div class="stars">
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star-half"></i>
+        </div>
+        <span><strong>4.3</strong> · 2,216+ Google reviews</span>
+      </div>
+      <div class="section-eyebrow center" style="margin-bottom:1rem;">
+        <span class="label">What People Say</span>
+      </div>
+      <h2 class="display-lg" style="color:#fff;margin-bottom:0.75rem;">Loved by the community.</h2>
+      <p class="section-lead">Honest words from the people who call this café their favourite spot.</p>
+    </div>
+
+    <div class="reviews-grid">
+
+      <div class="review-card anim anim-d1">
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">L</div>
+          <div>
+            <div class="reviewer-name">Local Guide</div>
+            <div class="reviewer-meta">Google Maps · Sainikpuri</div>
+          </div>
+        </div>
+        <div class="review-stars">
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i>
+        </div>
+        <p class="review-text">"Beautiful ambience with lots of greenery. The Korean Fried Chicken and coffee are absolute must-tries. Very peaceful place to work or hang out."</p>
+      </div>
+
+      <div class="review-card anim anim-d2">
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">A</div>
+          <div>
+            <div class="reviewer-name">Anjali R.</div>
+            <div class="reviewer-meta">Google Maps · Hyderabad</div>
+          </div>
+        </div>
+        <div class="review-stars">
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i>
+        </div>
+        <p class="review-text">"The staff is very polite and cooperative. I love their Sushi and the Cinnamon French Toast. A great spot in Sainikpuri — always coming back!"</p>
+      </div>
+
+      <div class="review-card anim anim-d3">
+        <div class="reviewer-row">
+          <div class="reviewer-avatar">V</div>
+          <div>
+            <div class="reviewer-name">Vikram S.</div>
+            <div class="reviewer-meta">Google Maps · Secunderabad</div>
+          </div>
+        </div>
+        <div class="review-stars">
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i>
+          <i class="ph-fill ph-star"></i>
+        </div>
+        <p class="review-text">"Perfect seating setup and vibe. They offer dine-in, drive-through, and delivery that's always on time. My go-to café in the area."</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ VISIT / FOOTER ════════════════════════ -->
+<footer class="visit-section" id="visit">
+  <div class="container">
+    <div class="visit-grid">
+
+      <!-- Brand -->
+      <div class="visit-brand anim">
+        <div class="logo">
+          <span class="logo-name">This Is It <span>Cafe</span></span>
+          <span class="logo-sub">థిస్ ఇస్ ఇట కేఫ్</span>
+        </div>
+        <p class="visit-desc" style="margin-top:1.25rem;">
+          A neighborhood premium café offering a relaxed green ambience, quality coffee, and global comfort food in the heart of Sainikpuri.
+        </p>
+        <div style="margin-top:1.75rem;display:flex;gap:0.75rem;flex-wrap:wrap;">
+          <a href="tel:07450009494" class="btn btn-primary">
+            <i class="ph ph-phone"></i> 074500 09494
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact -->
+      <div class="visit-col anim anim-d2">
+        <h4>Visit Us</h4>
+        <div class="info-list">
+          <div class="info-item">
+            <i class="ph ph-map-pin"></i>
+            <span>Plot No 185, 5th Ave, Vayupuri,<br>Sainikpuri, Secunderabad,<br>Telangana 500094</span>
+          </div>
+          <div class="info-item">
+            <i class="ph ph-clock"></i>
+            <span>Opens at <strong>9 AM</strong> every day</span>
+          </div>
+          <div class="info-item">
+            <i class="ph ph-phone"></i>
+            <span><a href="tel:07450009494">074500 09494</a></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="visit-col anim anim-d3">
+        <h4>Quick Links</h4>
+        <div class="quick-links">
+          <a href="#about"   class="quick-link"><i class="ph ph-arrow-right"></i> Ambience</a>
+          <a href="#menu"    class="quick-link"><i class="ph ph-arrow-right"></i> Menu</a>
+          <a href="#reviews" class="quick-link"><i class="ph ph-arrow-right"></i> Reviews</a>
+          <a href="tel:07450009494" class="quick-link highlight">
+            <i class="ph ph-storefront"></i> Order Online
+          </a>
+          <a href="#visit" class="quick-link highlight">
+            <i class="ph ph-calendar-check"></i> Reserve a Table
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-bar">
+    <p>&copy; 2026 This Is It Cafe, Sainikpuri · All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+  // ── Header scroll effect ──────────────────────────────────
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // ── Mobile menu ───────────────────────────────────────────
+  const toggleBtn  = document.getElementById('menu-toggle');
+  const mobileNav  = document.getElementById('mobile-nav');
+  const toggleIcon = document.getElementById('toggle-icon');
+  let navOpen = false;
+
+  toggleBtn.addEventListener('click', () => {
+    navOpen = !navOpen;
+    mobileNav.classList.toggle('open', navOpen);
+    toggleIcon.className = navOpen ? 'ph ph-x' : 'ph ph-list';
+  });
+
+  // Close mobile nav on any nav-link click
+  document.querySelectorAll('#mobile-nav .nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navOpen = false;
+      mobileNav.classList.remove('open');
+      toggleIcon.className = 'ph ph-list';
+    });
+  });
+
+  // Close mobile nav on resize to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth >= 1024 && navOpen) {
+      navOpen = false;
+      mobileNav.classList.remove('open');
+      toggleIcon.className = 'ph ph-list';
+    }
+  }, { passive: true });
+
+  // ── Menu filtering ────────────────────────────────────────
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const menuCards  = document.querySelectorAll('#menu-grid .menu-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      menuCards.forEach(card => {
+        const cat = card.dataset.cat;
+        if (filter === 'all' || cat === filter) {
+          card.classList.remove('hidden');
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+
+  // ── Scroll-triggered animations ───────────────────────────
+  const animEls = document.querySelectorAll('.anim');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  animEls.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
