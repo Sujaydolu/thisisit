@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Is It Cafe | Premium Dine-in & Delivery in Sainikpuri</title>
+    <meta name="description"
+        content="A neighborhood premium café in Sainikpuri offering a relaxed green ambience, quality coffee, global comfort food, and a versatile dine-in experience.">
+
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons (Phosphor Icons for modern look) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <span class="logo-text">This Is It <span class="logo-accent">Cafe</span></span>
+                <span class="logo-subtext">థిస్ ఇస్ ఇట కేఫ్</span>
+            </a>
+
+            <nav class="nav">
+                <ul class="nav-list">
+                    <li><a href="#about" class="nav-link">Ambience</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                    <li><a href="#visit" class="nav-link">Visit Us</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <a href="tel:07450009494" class="btn btn-outline" style="display: none;">Call Us</a>
+                <button class="btn btn-primary">Order Online</button>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="ph ph-list"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="hero-bg">
+                <img src="images/hero_cafe_interior_1772488404612.png" alt="Cafe Interior" id="hero-img">
+                <div class="hero-overlay"></div>
+            </div>
+
+            <div class="container hero-content">
+                <div class="trust-badge animate-fade-up">
+                    <i class="ph-fill ph-star"></i>
+                    <span><strong>4.3/5</strong> out of <strong>2,216+</strong> reviews</span>
+                </div>
+
+                <h1 class="hero-title animate-fade-up style-delay-1">A Neighborhood Oasis <br>in Sainikpuri.</h1>
+                <p class="hero-subtitle animate-fade-up style-delay-2">Experience a premium café with a relaxed green
+                    ambience, exceptional coffee, and global comfort food. Perfect for friends, families, and remote
+                    workers.</p>
+
+                <div class="hero-cta animate-fade-up style-delay-3">
+                    <button class="btn btn-primary btn-lg">Reserve a Table</button>
+                    <a href="#visit" class="btn btn-text">View Location <i class="ph ph-arrow-right"></i></a>
+                </div>
+
+                <div class="service-tags animate-fade-up style-delay-4">
+                    <span class="tag"><i class="ph ph-check-circle"></i> Dine-in</span>
+                    <span class="tag"><i class="ph ph-check-circle"></i> Drive-through</span>
+                    <span class="tag"><i class="ph ph-check-circle"></i> No-contact Delivery</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ambience Section -->
+        <section class="section about-section" id="about">
+            <div class="container about-container">
+                <div class="about-content">
+                    <h2 class="section-title">Your Space to Unwind & Work</h2>
+                    <p class="section-subtitle">A peaceful environment featuring lush green interiors, comfortable
+                        seating, and soft music. Whether you're catching up with friends or need a quiet corner to focus
+                        with your laptop, our space is designed for you.</p>
+                    <div class="about-features">
+                        <div class="feature">
+                            <i class="ph ph-plant"></i>
+                            <h4>Green Interiors</h4>
+                            <p>Surround yourself with nature while indoors.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="ph ph-music-notes"></i>
+                            <h4>Soft Music</h4>
+                            <p>Curated playlists for a calm, relaxing vibe.</p>
+                        </div>
+                        <div class="feature">
+                            <i class="ph ph-laptop"></i>
+                            <h4>Work-Friendly</h4>
+                            <p>Comfortable ergonomic seating and free Wi-Fi.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image-collage">
+                    <img src="images/coffee_cappuccino_1772488429309.png" alt="Cappuccino" class="collage-img img-main">
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu Section -->
+        <section class="section menu-section bg-light" id="menu">
+            <div class="container">
+                <div class="section-header text-center">
+                    <h2 class="section-title">Global Comfort Food & Quality Coffee</h2>
+                    <p class="section-subtitle">Carefully crafted dishes and beverages for every palate.</p>
+                </div>
+
+                <div class="menu-filters">
+                    <button class="menu-filter active">All</button>
+                    <button class="menu-filter">Food</button>
+                    <button class="menu-filter">Beverages</button>
+                </div>
+
+                <div class="menu-grid">
+                    <!-- Food Cards -->
+                    <div class="menu-card category-food">
+                        <div class="menu-card-img">
+                            <img src="images/korean_fried_chicken_1772488463270.png" alt="Korean Fried Chicken">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Korean Fried Chicken</h3>
+                            <p>Crispy chicken glazed in our signature spicy-sweet sauce.</p>
+                        </div>
+                    </div>
+                    <div class="menu-card category-food">
+                        <div class="menu-card-img">
+                            <img src="images/california_rolls_1772488476885.png" alt="Sushi & California Rolls">
+                        </div>
+                        <div class="menu-card-content">
+                            <h3>Sushi & California Rolls</h3>
+                            <p>Fresh, perfectly rolled sushi with high-quality ingredients.</p>
+                        </div>
+                    </div>
+                    <div class="menu-card category-food">
+                        <div class="menu-card-content no-img-padding">
+                            <h3>Chicken Wings</h3>
+                            <p>Juicy wings tossed in your choice of sauce.</p>
+                        </div>
+                    </div>
+                    <div class="menu-card category-food">
+                        <div class="menu-card-content no-img-padding">
+                            <h3>Wood-Fired Pizza</h3>
+                            <p>Hand-tossed crust with premium mozzarella and fresh toppings.</p>
+                        </div>
+                    </div>
+                    <div class="menu-card category-food">
+                        <div class="menu-card-content no-img-padding">
+                            <h3>Dim Sum & Ramen</h3>
+                            <p>Warm, comforting, and authentic flavors in every bowl.</p>
+                        </div>
+                    </div>
+                    <div class="menu-card category-food">
+                        <div class="menu-card-content no-img-padding">
+                            <h3>All-Day Breakfast</h3>
+                            <p>Turkish Eggs, Cinnamon French Toast, and Waffles with Fresh Fruit.</p>
+                        </div>
+                    </div>
+
+                    <!-- Beverage Cards -->
+                    <div class="menu-card category-bev">
+                        <div class="menu-card-content no-img-padding">
+                            <h3>Artisanal Coffee</h3>
+                            <p>Cappuccino, Latte, Iced Coffee made from freshly roasted beans.</p>
+                        </div>
+                    </div>
+                    <div class="menu-card category-bev">
+                        <div class="menu-card-content no-img-padding">
+                            <h3>Signature Mocktails</h3>
+                            <p>Try our refreshing Pina Colada and seasonal craft beverages.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-cta text-center mt-lg">
+                    <button class="btn btn-primary btn-lg">View Full Menu & Order Online</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section class="section reviews-section" id="reviews">
+            <div class="container">
+                <div class="section-header text-center">
+                    <div class="trust-badge centered-badge">
+                        <i class="ph-fill ph-star"></i>
+                        <span><strong>4.3/5</strong> out of <strong>2,216+</strong> reviews</span>
+                    </div>
+                    <h2 class="section-title mt-sm">Loved by the Community</h2>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong>Local Guide</strong>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Beautiful ambience with lots of greenery. The Korean Fried chicken and
+                            coffee are absolute must-tries. Very peaceful place to work or hang out."</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong>Anjali R.</strong>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"The staff is very polite and cooperative. I love their Sushi and the
+                            Cinnamon French toast. Great spot in Sainikpuri!"</p>
+                    </div>
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-info">
+                                <strong>Vikram S.</strong>
+                                <div class="stars">
+                                    <i class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i><i class="ph-fill ph-star"></i><i
+                                        class="ph-fill ph-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Perfect seating setup and vibe. They offer dine-in, drive-through and
+                            the delivery is always on time. My go-to cafe."</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / Location -->
+        <footer class="footer" id="visit">
+            <div class="container footer-container">
+                <div class="footer-info">
+                    <a href="#" class="logo footer-logo">
+                        <span class="logo-text">This Is It <span class="logo-accent">Cafe</span></span>
+                        <span class="logo-subtext">థిస్ ఇస్ ఇట కేఫ్</span>
+                    </a>
+                    <p class="footer-desc">A neighborhood premium café offering a relaxed green ambience, quality
+                        coffee, global comfort food, and a versatile dine-in experience.</p>
+                </div>
+
+                <div class="footer-contact">
+                    <h4>Visit Us</h4>
+                    <p><i class="ph ph-map-pin"></i> Plot No 185, 5th Ave, Vayupuri, Sainikpuri,<br>Secunderabad,
+                        Telangana 500094</p>
+                    <p><i class="ph ph-clock"></i> Opens at 9 AM Every Day</p>
+                    <p><i class="ph ph-phone"></i> <a href="tel:07450009494">074500 09494</a></p>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">Ambience</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#" class="primary-link">Order Online</a></li>
+                        <li><a href="#" class="primary-link">Reserve a Table</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom text-center">
+                <p>&copy; 2026 This Is It Cafe. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+
+</html>
